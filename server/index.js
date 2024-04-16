@@ -12,6 +12,7 @@ const Router = require("./router")
 server.use("/api/auth", Router.userRouter);
 server.use("/api/profile", Router.profileRouter);
 server.use("/api/job", Router.jobRouter);
+server.use("/api/apply",Router.applicationRouter);
 
 
 
