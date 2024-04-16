@@ -8,14 +8,14 @@ const Router = express.Router();
 
 Router.post("/",verifyToken,addApplication);
 Router.get("/",verifyToken,getApplication);
-Router.delete("/cancel/:id",verifyToken,cancelApplication);
+Router.delete("/cancellation/:id",verifyToken,cancelApplication);
 Router.get("/filter",verifyToken,filterApplications);
  
 
 //..............Routes for job provider...........
 
-Router.get("/jobApplication",verifyTokenAndIsProvider,getApplicationsForProvider);
-Router.put("/updateApplication/:id",verifyTokenAndIsProvider,manageApplicationStatus);
+Router.get("/provider",verifyTokenAndIsProvider,getApplicationsForProvider);
+Router.put("/:id",verifyTokenAndIsProvider,manageApplicationStatus);
 
 
 
