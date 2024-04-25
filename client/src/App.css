@@ -1,0 +1,231 @@
+
+  
+  .Form-container-login {
+    width: 400px;
+    height: 500px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #bac4ed;
+  }
+  
+  .login-heading {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+  }
+  
+  .user-input,
+  .password-input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .login-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #004080;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 15px;
+  }
+  
+  .login-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .login-button:active {
+    background-color: #004080;
+  }
+  
+  
+
+
+
+
+
+  
+.Form-container-register {
+    width: 400px;
+    height: 500px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #bac4ed;
+  }
+  
+  .signup-heading {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .Form-register {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sign-name,
+  .sign-email,
+  .sign-username,
+  .sign-password {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .sign-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .sign-checked {
+    margin-right: 5px;
+  }
+  
+  .sign-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .sign-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .sign-button:active {
+    background-color: #004080;
+  }
+
+
+
+
+/* Navbar Container */
+.navbar {
+  background-color: #c9dced;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+.navCont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.log {
+  font-size: 24px;
+  text-decoration: none; 
+  color: black;
+}
+
+/* Login and Logout Buttons */
+.LoginButton,
+.LogoutButton {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.LoginButton:hover,
+.LogoutButton:hover {
+  background-color: #0056b3;
+}
+
+/* Link styles */
+.LinkButton {
+  text-decoration: none;
+  color: #fff;
+}
+
+
+
+.SideBar {
+  position: fixed;
+  top: calc(70px + 25px); /* Height of navbar + additional space */
+  left: 9px;
+  width: 200px; /* Adjust width as needed */
+  height: calc(100% - 80px); /* Subtract navbar height from total height */
+  background-color: #f0f0f0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.SideBar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.SideBar li {
+  margin-bottom: 10px;
+  cursor: pointer;
+  background-color: #ffffff; /* Background color of list item */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Padding inside the box */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
+}
+
+.SideBar li:hover {
+  color: #007bff; /* Change color on hover */
+}
+
+
+.home-h1{
+  margin-left: 250px;
+}
+/* Profile Page */
+.profile-container {
+  margin-left: 230px; /* Adjust to accommodate sidebar width */
+  padding: 20px;
+}
+
+.profile-details {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
+}
+
+.profileInfo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+
+.profileInfo input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.profileInfo input[type="text"]::placeholder {
+  color: #999;
+}
+
+

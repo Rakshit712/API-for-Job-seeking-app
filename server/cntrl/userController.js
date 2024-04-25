@@ -78,7 +78,12 @@ async function login(req, res) {
         status: 'Login success!',
 
         message: "user logged  In Successfully",
-        token: token
+        data:{
+            token: token,
+            isProvider: user.isProvider,
+            userName: user.userName,
+            userId: user._id
+        }
     })
 
 
