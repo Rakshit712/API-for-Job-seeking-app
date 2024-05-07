@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
+import JobPage from './pages/JobPage';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route path = "/register" element = {<SignIn/>}/>
       <Route path = "/login" element = {<Login/>}/>
       <Route path='/profile' element = {<Profile/>}/>
+      <Route path='/job' element = {<JobPage/>}/>
 
     </Routes>
     </BrowserRouter>

@@ -68,6 +68,36 @@ async function getJobs(req, res) {
     }
 }
 
+//.................get job by id..............
+
+async function getjobById(req,res){
+    try {
+        const jobId = req.params.id;
+        const job = await Job.findById(jobId);
+        if(job){
+            return res.status(200).json({
+                status: "success",
+                message: "job found",
+                job
+            })
+        }
+        else{
+            return res.status(404).json({
+                status: "error",
+                message: "job not found"
+            })
+        }
+        
+    } catch (err) {
+        throw {
+            statusCode: err.statusCode || 500,
+            status: err.status || "Something went wrong",
+            message: err.message || "Internal server error"
+
+        }
+    }
+}
+
 //.............updating job role........
 
 async function updateJobRole(req, res) {
@@ -138,6 +168,8 @@ module.exports = {
     postJob: errorWrapper(postJob)
     , updateJobRole: errorWrapper(updateJobRole)
     , deleteJob: errorWrapper(deleteJob)
-    , getJobs: errorWrapper(getJobs)
+    , getJobs: errorWrapper(getJobs),
+    getjobById:errorWrapper(getjobById)
+
 
 };

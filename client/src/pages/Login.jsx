@@ -3,6 +3,7 @@ import Header from '../components/Header'
 import{Link, useNavigate} from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
 import { userLogin } from '../store/UserSlice'
+import Sidebar from '../components/Sidebar'
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -31,6 +32,7 @@ function Login() {
   return (
     <>
     <Header></Header>
+    <Sidebar/>
     <div className='Form-container-login'>
 
       <h2 className='login-heading'>

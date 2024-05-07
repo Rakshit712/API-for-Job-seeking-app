@@ -5,6 +5,7 @@ const Job = require("../models/JobModel");
 
 const verifyToken = (req, res, next) => {
     const authHeader = req.headers.token;
+    
 
     if (authHeader) {
         const token = authHeader.split(' ')[1];
@@ -13,7 +14,7 @@ const verifyToken = (req, res, next) => {
             if (err) {
                 return res.status(403).json({
                     status: "failure",
-                    message: "Invalid token"
+                    message: "session expired....Please login again"
                 })
             }
             else {

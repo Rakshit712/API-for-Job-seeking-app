@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { logout } from '../store/UserSlice';
+import { FcOrganization } from "react-icons/fc";
 
 function Header() {
   const {isLoggedIn} = useSelector((state)=>state.user);
@@ -25,7 +26,7 @@ useEffect(() => {
 const handleLogout = () => {
   localStorage.removeItem('data');
   dispatch(logout)
-  window.location.reload();
+  window.location.href = '/';
 }
 
   return (
@@ -34,15 +35,16 @@ const handleLogout = () => {
     
     <div className='navbar'>
       <div className='navCont'>
-      <Link to='/'>
+      <Link className='logo-link' to='/'>
       <h2 className='log'>
+      <FcOrganization />
       JobNest
       </h2>
       </Link>
 
       
       {isLoggedIn ? (
-          <button className='LogoutButton' onClick={handleLogout}>Log Out</button>
+          <button className='LogoutButton' onClick={handleLogout}> Log Out</button>
         ) 
         
         : (

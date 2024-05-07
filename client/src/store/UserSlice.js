@@ -5,6 +5,7 @@ export const userSignin = createAsyncThunk(
     'user/SigninUser',
     async(formData) => {
         const request = await axios.post("https://api-for-job-seeking-app.onrender.com/api/auth/register/",formData)
+        // const request = await axios.post("http://localhost:8000/api/auth/register",formData)
         const response = await request.data;
         return response;
     }
@@ -13,6 +14,7 @@ export const userLogin = createAsyncThunk(
     'user/loginUser',
     async(formData) => {
         const request = await axios.post("https://api-for-job-seeking-app.onrender.com/api/auth/",formData)
+        // const request = await axios.post("http://localhost:8000/api/auth",formData)
         const response = await request.data.data;
         localStorage.setItem('data',JSON.stringify(response));
        

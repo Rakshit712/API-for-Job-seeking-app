@@ -1,6 +1,11 @@
-
+body{
+  margin: 0;
+  padding: 0;
+}
   
   .Form-container-login {
+   margin-top: 100px;
+    margin-left: 500px;
     width: 400px;
     height: 500px;
     padding: 20px;
@@ -57,6 +62,8 @@
 
   
 .Form-container-register {
+  margin-top: 100px;
+  margin-left: 500px;
     width: 400px;
     height: 500px;
     padding: 20px;
@@ -120,9 +127,12 @@
 
 /* Navbar Container */
 .navbar {
+  top:0px;
+  position: fixed;
+  width: 98%;
   background-color: #c9dced;
   color: #fff;
-  padding: 10px 20px;
+  padding: 11px 20px;
 }
 
 .navCont {
@@ -138,7 +148,11 @@
   color: black;
 }
 
-/* Login and Logout Buttons */
+.logo-link{
+  text-decoration: none; 
+  color: inherit; 
+}
+
 .LoginButton,
 .LogoutButton {
   background-color: #007bff;
@@ -165,8 +179,8 @@
 
 .SideBar {
   position: fixed;
-  top: calc(70px + 25px); /* Height of navbar + additional space */
-  left: 9px;
+  top: calc(70px + 20px); /* Height of navbar + additional space */
+ 
   width: 200px; /* Adjust width as needed */
   height: calc(100% - 80px); /* Subtract navbar height from total height */
   background-color: #f0f0f0;
@@ -175,31 +189,41 @@
 }
 
 .SideBar ul {
+  
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
 .SideBar li {
+  text-decoration: none;
   margin-bottom: 10px;
   cursor: pointer;
-  background-color: #ffffff; /* Background color of list item */
-  border-radius: 5px; /* Rounded corners */
-  padding: 10px; /* Padding inside the box */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
+  background-color: #ffffff; 
+  border-radius: 5px; 
+  padding: 10px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
-
+.SideBar ul li a {
+  text-decoration: none; 
+  color: inherit; 
+}
 .SideBar li:hover {
-  color: #007bff; /* Change color on hover */
+  color: #007bff; 
 }
 
 
 .home-h1{
   margin-left: 250px;
 }
-/* Profile Page */
+
+
+/*..............Profile Page................... */
+
+
 .profile-container {
-  margin-left: 230px; /* Adjust to accommodate sidebar width */
+  margin-left: 230px;
+  margin-top: 60px ;
   padding: 20px;
 }
 
@@ -229,3 +253,78 @@
 }
 
 
+.profileInfo button{
+  width: 90px;
+}
+/*............home page..............*/
+
+.content-container { 
+  margin-left: 230px; 
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.jobPosts {
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.job-tab {
+  background-color: #f0f0f0;
+}
+
+.ul-job {
+  list-style: none;
+  padding: 0;
+}
+
+.ul-job li {
+  margin-bottom: 20px; /* Add a gap between job posts */
+  background-color: #ffffff; /* Background color for job posts */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.ul-job li:nth-child(even) {
+  background-color: #f0f0f0; /* Alternate background color for even job posts */
+}
+
+/*................. JobPage.css ............*/
+
+/* JobPage.css */
+
+.JobDiscripPage {
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.job-content {
+  margin-left: 220px;
+  margin-top: 65px;
+  padding: 20px;
+}
+
+.job-card {
+  font-size: 16px; /* Set a base font size */
+}
+
+.job-card h2 {
+  font-size: 27px; /* Increase font size for job title */
+  margin-bottom: 10px; /* Add some space below the title */
+}
+
+
+
+.job-card p {
+  font-size: 17px; /* Set font size for other paragraphs */
+  margin-bottom: 10px; /* Add some space below each paragraph */
+}
+
+.job-card ul {
+  list-style-type: circle;
+  margin-left: 20px; 
+}
+
+
+
+/* Other styles as needed */

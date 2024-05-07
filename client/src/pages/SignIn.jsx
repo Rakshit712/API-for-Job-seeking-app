@@ -91,7 +91,7 @@ const {loading,error} = useSelector((state) => state.user);
           </label>
 
           <button className="sign-button">
-            {loading ? "Loading..." : "Login"}
+            {loading ? "Loading..." : "SignIn"}
           </button>
         </form>
 

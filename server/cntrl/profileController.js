@@ -14,7 +14,8 @@ async function postProfile(req, res) {
         if (newProfile) {
             return res.status(201).json({
                 status: "success",
-                message: "profile Created"
+                message: "profile Created",
+                data:newProfile
             })
         }
         else {
@@ -43,7 +44,7 @@ async function editProfile(req, res) {
             res.status(200).json({
                 status: "success",
                 message: "profile updated successfully",
-                updatedUser
+                data:updatedUser
             })
 
         }
@@ -63,4 +64,33 @@ async function editProfile(req, res) {
     }
 }
 
-module.exports = { postProfile, editProfile };
+async function getProfile(req,res){
+    try {
+        
+        const id = req.params.id;
+        const user = await Profile.find({userId:id});
+        if(user.length>0){
+            return res.status(200).json({
+                status: "success",
+                message: "profile fetched successfully",
+                data:user
+            })
+        }
+        else{
+            return res.status(403).json(
+                {
+                    status:"failure",
+                    message:"No Profile found for this user"
+                }
+            )
+        }
+
+    } catch (err) {
+        return res.status(err.statusCode || 500).json({
+            status: err.status || "Something went wrong",
+            message: err.message || "Internal server error"
+        });
+    }
+}
+
+module.exports = { postProfile, editProfile ,getProfile};
