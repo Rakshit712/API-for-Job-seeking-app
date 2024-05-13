@@ -16,7 +16,7 @@ function JobPage() {
         dispatch(getJobById(id))
     },[])
     const handleClick = () => {
-      navigate('/application', { state: { jobId: id, title: title } });
+      navigate('/application', { state: { jobId: id, title: jobs.title } });
     }
   return (
     <>
