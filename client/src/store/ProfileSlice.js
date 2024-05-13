@@ -30,8 +30,8 @@ export const editProfile = createAsyncThunk('profile/editProfile',
         token:`Bearer ${token}`,
         'Content-Type': 'application/json'
     };
-        const request = await axios.patch(`http://localhost:8000/api/profile/${id}`,formData,{headers});
-        // const request = await axios.patch(`https://api-for-job-seeking-app.onrender.com/api/profile/${id}`,formData,{headers});
+        // const request = await axios.patch(`http://localhost:8000/api/profile/${id}`,formData,{headers});
+        const request = await axios.patch(`https://api-for-job-seeking-app.onrender.com/api/profile/${id}`,formData,{headers});
         const response =request.data;
         return response;
     }
@@ -48,8 +48,8 @@ export const postProfile = createAsyncThunk('profile/postProfile',
       token: `Bearer ${token}`,
       'Content-Type': 'application/json'
     };
-        const request = await axios.post('http://localhost:8000/api/profile', profile,{ headers });
-        // const request = await axios.post('https://api-for-job-seeking-app.onrender.com/api/profile', profile,{ headers });
+        // const request = await axios.post('http://localhost:8000/api/profile', profile,{ headers });
+        const request = await axios.post('https://api-for-job-seeking-app.onrender.com/api/profile', profile,{ headers });
         const response = request.data;
         return response;
     }
