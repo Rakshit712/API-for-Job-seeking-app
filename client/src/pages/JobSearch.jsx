@@ -1,25 +1,32 @@
-import React, { useEffect } from 'react';
-import Header from '../components/Header';
-import Sidebar from '../components/Sidebar';
-import { useDispatch, useSelector } from 'react-redux';
-import { getJobs } from '../store/JobSlice';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import Header from '../components/Header'
+import Sidebar from '../components/Sidebar'
+import { useDispatch, useSelector } from 'react-redux'
+import { searchJob } from '../store/SearchSlice';
+import { useLocation } from 'react-router-dom';
 import { SiAkamai, SiEsotericsoftware } from "react-icons/si";
 
 
-function Home() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const { data: jobs, loading, error } = useSelector((state) => state.jobs);
 
-  useEffect(() => {
-    dispatch(getJobs());
-  }, [dispatch]);
-
-  const handleClick = (jobId) => {
-    console.log("clicked")
-    navigate('/job', { state: jobId });
-  }
+function JobSearch() {
+    const dispatch = useDispatch();
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const searchTerm = queryParams.get('query');
+  
+    useEffect(() => {
+        
+        if (searchTerm && typeof searchTerm === 'string') {
+           
+            dispatch(searchJob(searchTerm)); 
+        } else if (searchTerm && typeof searchTerm === 'object') {
+            
+            const queryString = new URLSearchParams(searchTerm).toString();
+            dispatch(searchJob(queryString));
+        }
+    }, [dispatch, searchTerm]);
+  
+    const { data: jobs, loading, error } = useSelector((state) => state.search);
 
   return (
     <>
@@ -30,7 +37,7 @@ function Home() {
         <div className='jobPage'>
           <div className='jobPosts'>
          
-            <h1>Job Posts</h1>
+            <h1>Search Results...</h1>
             
             {loading ? (
               <div>Loading....</div>
@@ -56,7 +63,7 @@ function Home() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default Home;
+export default JobSearch

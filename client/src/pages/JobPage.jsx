@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { getJobById } from '../store/JobSlice';
 
@@ -9,11 +9,15 @@ function JobPage() {
     const location =useLocation();
     const id = location.state;
     const dispatch =useDispatch();
+    const navigate = useNavigate();
     const { data: jobs, loading, error } = useSelector((state) => state.jobs);
     
     useEffect(()=>{
         dispatch(getJobById(id))
     },[])
+    const handleClick = () => {
+      navigate('/application', { state: { id, title: jobs.title } })
+    }
   return (
     <>
     <Header/>
@@ -44,7 +48,7 @@ function JobPage() {
             </ul>
         ) : null}
         </p>
-        <button className='LogoutButton'>Apply</button>
+        <button onClick={handleClick} className='LogoutButton'>Apply</button>
           
     </div>
     ) : null}

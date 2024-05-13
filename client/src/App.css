@@ -153,6 +153,31 @@ body{
   color: inherit; 
 }
 
+.searchBar {
+  display: flex;
+  align-items: center;
+}
+
+.searchBar input[type="text"] {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.searchBar button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.searchBar button:hover {
+  background-color: #0056b3;
+}
+
 .LoginButton,
 .LogoutButton {
   background-color: #007bff;
@@ -179,10 +204,9 @@ body{
 
 .SideBar {
   position: fixed;
-  top: calc(70px + 20px); /* Height of navbar + additional space */
- 
-  width: 200px; /* Adjust width as needed */
-  height: calc(100% - 80px); /* Subtract navbar height from total height */
+  top: calc(70px + 20px);
+  width: 200px; 
+  height: calc(100% - 80px);
   background-color: #f0f0f0;
   padding: 20px;
   box-sizing: border-box;
@@ -231,7 +255,7 @@ body{
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .profileInfo {
@@ -259,10 +283,13 @@ body{
 /*............home page..............*/
 
 .content-container { 
+  margin-top: 63px;
   margin-left: 230px; 
   overflow-y: auto;
   flex-grow: 1;
 }
+
+
 
 .jobPosts {
   padding: 20px;
@@ -279,15 +306,48 @@ body{
 }
 
 .ul-job li {
-  margin-bottom: 20px; /* Add a gap between job posts */
-  background-color: #ffffff; /* Background color for job posts */
+  margin-bottom: 20px; 
+  background-color: #ffffff;
   padding: 10px;
   border-radius: 5px;
 }
 
 .ul-job li:nth-child(even) {
-  background-color: #f0f0f0; /* Alternate background color for even job posts */
+  background-color: #f0f0f0; 
 }
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .content-container {
+    flex-grow: 1;
+  }
+}
+
+/* Sidebar Toggle Button Styles */
+.sidebar-toggle-button {
+  display: none; /* Hide by default on larger screens */
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar-toggle-button {
+    display: block; /* Show on smaller screens */
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+  }
+}
+
+/* Sidebar Open State Styles */
+.sidebar-open .sidebar {
+  transform: translateX(0);
+}
+
 
 /*................. JobPage.css ............*/
 
@@ -309,8 +369,8 @@ body{
 }
 
 .job-card h2 {
-  font-size: 27px; /* Increase font size for job title */
-  margin-bottom: 10px; /* Add some space below the title */
+  font-size: 27px; 
+  margin-bottom: 10px; 
 }
 
 
@@ -327,4 +387,45 @@ body{
 
 
 
-/* Other styles as needed */
+/* search page......*/
+
+.searchContainer {
+  margin-left: 230px;
+  margin-top: 70px ;
+  padding: 20px;
+}
+
+
+
+/*ApplicationContainer*/
+
+.ApplicationContainer{
+  margin-left: 230px;
+  margin-top: 70px ;
+  padding: 20px;
+}
+
+
+/* Style for the form container */
+.ApplicationContainer__form {
+  width: 300px;
+  margin-left: 30px;
+  margin-top: 40px;
+}
+
+/* Style for the form inputs */
+.ApplicationContainer__form__input input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.description{
+  height: 50px;
+}
+/* Style for the file input */
+.ApplicationContainer__form__input .file {
+  margin-top: 10px;
+}

@@ -121,51 +121,7 @@ async function cancelApplication(req, res) {
     }
 }
 
-//...............function to filter  applications by user type, location and salary range ............
 
-async function filterApplications(req, res) {
-
-    const filters = req.query;
-    console.log(filters)
-
-    const filterObject = {};
-
-    if (filters.location) {
-        filterObject.location = { $regex: new RegExp(filters.location.toLowerCase(), 'i') };
-    }
-    else if (filters.title) {
-        filterObject.title = { $regex: new RegExp(filters.title.toLowerCase(), 'i') };
-    }
-    else if (filters.salaryMin) {
-        filterObject.salary = { $gte: filters.salaryMin };
-    }
-
-    try {
-        const jobs = await Job.find(filterObject);
-        if (jobs && jobs.length > 0) {
-            return res.status(200).json({
-                status: 'Success',
-                data: {
-                    count: jobs.length,
-                    jobs: jobs
-                }
-            })
-        }
-        else {
-            return res.status(404).json({
-                status: "Fail",
-                message: 'No Job Applications found for this catagory!'
-            })
-        }
-    } catch (err) {
-        throw {
-            statusCode: err.statusCode || 500,
-            status: err.status || "Something went wrong",
-            message: err.message || "Internal server error"
-
-        }
-    }
-}
 
 
 //......................function for job provider to get all the applications...........
@@ -245,5 +201,5 @@ module.exports = {
     , manageApplicationStatus: errorWrapper(manageApplicationStatus)
     , getApplicationsForProvider: errorWrapper(getApplicationsForProvider)
     , cancelApplication: errorWrapper(cancelApplication),
-    filterApplications: errorWrapper(filterApplications),
+  
 };

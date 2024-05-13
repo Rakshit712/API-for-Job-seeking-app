@@ -3,16 +3,16 @@ import axios from 'axios'
 
 export const getJobs = createAsyncThunk('user/fetchJobs',
     async () => {
-        // const request = await axios.get("http://localhost:8000/api/job")
-        const request = await axios.get("https://api-for-job-seeking-app.onrender.com/api/job")
+        const request = await axios.get("http://localhost:8000/api/job")
+        // const request = await axios.get("https://api-for-job-seeking-app.onrender.com/api/job")
         const response = await request.data;
         return response;
     }
 )
 export const getJobById = createAsyncThunk('users/fetchJobId',
     async (id) => {
-        // const url = `http://localhost:8000/api/job/${id}`;
-        const url = `https://api-for-job-seeking-app.onrender.com/api/job/${id}`;
+        const url = `http://localhost:8000/api/job/${id}`;
+        // const url = `https://api-for-job-seeking-app.onrender.com/api/job/${id}`;
         const request = await axios.get(url);
         const response = request.data;
         return response;

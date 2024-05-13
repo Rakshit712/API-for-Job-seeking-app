@@ -1,5 +1,5 @@
 const express = require("express");
-const { addApplication, getApplication, manageApplicationStatus, getApplicationsForProvider, cancelApplication, filterApplications } = require("../cntrl/applicationController");
+const { addApplication, getApplication, manageApplicationStatus, getApplicationsForProvider, cancelApplication } = require("../cntrl/applicationController");
 const { verifyToken, verifyTokenAndIsProvider } = require("../util/authenticate");
 
 const Router = express.Router();
@@ -9,7 +9,7 @@ const Router = express.Router();
 Router.post("/",verifyToken,addApplication);
 Router.get("/",verifyToken,getApplication);
 Router.delete("/cancellation/:id",verifyToken,cancelApplication);
-Router.get("/filter",verifyToken,filterApplications);
+
  
 
 //..............Routes for job provider...........

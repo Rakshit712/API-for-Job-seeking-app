@@ -58,7 +58,7 @@ async function getJobs(req, res) {
 
         }
 
-    } catch (error) {
+    } catch (err) {
         throw {
             statusCode: err.statusCode || 500,
             status: err.status || "Something went wrong",
@@ -164,12 +164,55 @@ async function deleteJob(req, res) {
     }
 }
 
+//...............function to filter  jobs by user type, location and salary range ............
+
+async function filterJobs(req, res) {
+    const { title, location } = req.query;
+
+    const filterObject = {};
+
+    if (location) {
+        filterObject.location = { $regex: new RegExp(location.toLowerCase(), 'i') };
+    }
+
+    if (title) {
+        filterObject.title = { $regex: new RegExp(title.toLowerCase(), 'i') };
+    }
+
+    try {
+        const jobs = await Job.find(filterObject);
+        
+        if (jobs && jobs.length > 0) {
+            return res.status(200).json({
+                status: 'Success',
+                data: {
+                    count: jobs.length,
+                    jobs: jobs
+                }
+            });
+        } else {
+            return res.status(404).json({
+                status: "Fail",
+                message: 'No Job Applications found for this category!'
+            });
+        }
+    } catch (err) {
+        return res.status(500).json({
+            status: "Error",
+            message: "Internal server error",
+            error: err.message
+        });
+    }
+}
+
+
 module.exports = {
     postJob: errorWrapper(postJob)
     , updateJobRole: errorWrapper(updateJobRole)
     , deleteJob: errorWrapper(deleteJob)
     , getJobs: errorWrapper(getJobs),
-    getjobById:errorWrapper(getjobById)
+    getjobById:errorWrapper(getjobById),
+    filterJobs:errorWrapper(filterJobs)
 
 
 };

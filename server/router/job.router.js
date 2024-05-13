@@ -1,4 +1,4 @@
-const { postJob, updateJobRole, deleteJob, getJobs, getjobById } = require("../cntrl/jobController");
+const { postJob, updateJobRole, deleteJob, getJobs, getjobById, filterJobs } = require("../cntrl/jobController");
 const express = require("express");
 
 const { verifyToken, verifyTokenAndIsProvider, verifyTokenAndAuthenticate } = require("../util/authenticate");
@@ -12,6 +12,7 @@ Router.put("/:id", verifyTokenAndAuthenticate, updateJobRole)
 Router.delete("/:id", verifyTokenAndAuthenticate, deleteJob)
 Router.get("/",  getJobs)
 Router.get("/:id",getjobById)
+Router.get("/searchh",filterJobs);
 
 
 module.exports = Router
