@@ -22,6 +22,7 @@ function ApplicationPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     formData.jobId = jobId;
     console.log(formData);
     dispatch(addApplication(formData)).then((res) => {
