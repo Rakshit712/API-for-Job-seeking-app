@@ -11,8 +11,8 @@ Router.post("/", postJob)
 Router.put("/:id", verifyTokenAndAuthenticate, updateJobRole)
 Router.delete("/:id", verifyTokenAndAuthenticate, deleteJob)
 Router.get("/",  getJobs)
-Router.get("/:id",getjobById)
 Router.get("/searchh",filterJobs);
+Router.get("/:id",getjobById)
 
 
 module.exports = Router

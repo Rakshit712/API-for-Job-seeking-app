@@ -4,8 +4,8 @@ import axios from 'axios'
 export const searchJob = createAsyncThunk('search/filterJobs',
 async (query) => {
    console.log(query,"12552222");
-    // const request = await axios.get(`http://localhost:8000/api/job/?${query}`)
-    const request = await axios.get(`https://api-for-job-seeking-app.onrender.com/api/job/?${query}`)
+    // const request = await axios.get(`http://localhost:8000/api/job/searchh?${query}`)
+    const request = await axios.get(`https://api-for-job-seeking-app.onrender.com/api/job/searchh?${query}`)
     const response = await request.data;
     return response;
 }

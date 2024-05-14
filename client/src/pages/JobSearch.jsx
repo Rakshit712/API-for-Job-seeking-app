@@ -3,16 +3,18 @@ import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
 import { useDispatch, useSelector } from 'react-redux'
 import { searchJob } from '../store/SearchSlice';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { SiAkamai, SiEsotericsoftware } from "react-icons/si";
 
 
 
 function JobSearch() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const searchTerm = queryParams.get('query');
+    const { data: jobs, loading, error } = useSelector((state) => state.search);  
   
     useEffect(() => {
         
@@ -26,7 +28,11 @@ function JobSearch() {
         }
     }, [dispatch, searchTerm]);
   
-    const { data: jobs, loading, error } = useSelector((state) => state.search);
+   
+    const handleClick =(e) => {
+      navigate('/application', { state: { jobId: jobs._id, title: jobs.title } });
+
+    }
 
   return (
     <>
@@ -52,7 +58,7 @@ function JobSearch() {
                       <p>Company: {job.companyName}</p>
                       <p>Location: {job.location}</p>
                       <p>Vacancy: {job.vacancy}</p>
-                      <button onClick={() => handleClick(job._id)} className='LogoutButton'>More Info..</button>
+                      
                     </li>
                   ))}
                 </ul>                    

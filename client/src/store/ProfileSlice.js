@@ -11,8 +11,8 @@ export const getProfile = createAsyncThunk('profile/getProfile',
       token: `Bearer ${token}`,
       'Content-Type': 'application/json'
     };
-        const request = await axios.get(`http://localhost:8000/api/profile/${id}`,{headers});
-        // const request = await axios.get(`https://api-for-job-seeking-app.onrender.com/api/profile/${id}`,{headers});
+        // const request = await axios.get(`http://localhost:8000/api/profile/${id}`,{headers});
+        const request = await axios.get(`https://api-for-job-seeking-app.onrender.com/api/profile/${id}`,{headers});
         const response =request.data;
         
         return response;

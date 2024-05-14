@@ -185,10 +185,8 @@ async function filterJobs(req, res) {
         if (jobs && jobs.length > 0) {
             return res.status(200).json({
                 status: 'Success',
-                data: {
-                    count: jobs.length,
-                    jobs: jobs
-                }
+                count: jobs.length,
+                data:jobs
             });
         } else {
             return res.status(404).json({
