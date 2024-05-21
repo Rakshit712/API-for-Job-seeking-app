@@ -12,7 +12,7 @@ export const updatejob = createAsyncThunk ('user/updateJob'
         };
         console.log(headers);
         // const request = await axios.patch(`http://localhost:8000/api/job/${jobId}`,formData,{headers})
-        const request = await axios.post(`https://api-for-job-seeking-app.onrender.com/api/job/${jobId}`,formData,{headers},)
+        const request = await axios.patch(`https://api-for-job-seeking-app.onrender.com/api/job/${jobId}`,formData,{headers},)
         const response = await request.data;
         return response;
     }
@@ -29,7 +29,7 @@ export const deleteJob = createAsyncThunk ('user/deleteJob',
         };
         console.log(headers);
         // const request = await axios.delete(`http://localhost:8000/api/job/${jobId}`,{headers})
-        const request = await axios.post(`https://api-for-job-seeking-app.onrender.com/api/job/${jobId}`,{headers})
+        const request = await axios.delete(`https://api-for-job-seeking-app.onrender.com/api/job/${jobId}`,{headers})
         const response = await request.data;
         return response;
     }
@@ -45,7 +45,7 @@ export const getJobForProvider = createAsyncThunk('user/getJobs',
         };
         console.log(headers)
         // const request = await axios.get(`http://localhost:8000/api/job/MyJobs/${providerid}`,{headers})
-        const request = await axios.post(`https://api-for-job-seeking-app.onrender.com/api/job/MyJobs/${providerid}`,{headers})
+        const request = await axios.get(`https://api-for-job-seeking-app.onrender.com/api/job/MyJobs/${providerid}`,{headers})
         const response = await request.data;
         return response;
     }
