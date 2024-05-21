@@ -8,8 +8,10 @@ import JobPage from "./pages/JobPage";
 import JobSearch from "./pages/JobSearch";
 import ApplicationPage from "./pages/ApplicationPage";
 import { useSelector } from "react-redux";
-import { Outlet } from 'react-router-dom';
 import React from "react";
+import CreateJob from "./pages/CreateJob";
+import MyJobs from "./pages/MyJobs";
+import EditJob from "./pages/EditJob";
 
 function App() {
   const { isLoggedIn } = useSelector((state) => state.user);
@@ -25,18 +27,34 @@ function App() {
         <Route path="/job" element={<JobPage />} />
         <Route path="/search" element={<JobSearch />} />
         <Route path="/application" element={<ProtectedApplicationPage />} />
-        {/* //  {isLoggedIn ? (
-        //   <Route path='/application' element={<ApplicationPage />} />
-        // ) : (
-        //   <Route path="/login" element={<Login />} />
-        // )}  */}
+        <Route path="/createJob" element = {<CreateJobPage/>}/>
+        <Route path="/myjobs" element = {<MyJobs/>}/>
+        <Route path="/editJob" element = {<EditJob/>}/>
       </Routes>
     </BrowserRouter>
   );
 }
 
+function CreateJobPage(){
+  const { isLoggedIn } = useSelector((state) => state.user);
+  console.log(isLoggedIn)
+  const navigate = useNavigate();
+  React.useEffect(() => {
+    if (!isLoggedIn) {
+      navigate('/login');
+    }
+  }, [isLoggedIn, navigate]);
+
+  if (isLoggedIn) {
+    return <CreateJob />;
+  } else {
+    return null; 
+  }
+}
+
 function ProtectedApplicationPage() {
   const { isLoggedIn } = useSelector((state) => state.user);
+  console.log(isLoggedIn);
   const navigate = useNavigate();
 
   React.useEffect(() => {

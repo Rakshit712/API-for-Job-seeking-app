@@ -133,6 +133,7 @@ body{
   background-color: #c9dced;
   color: #fff;
   padding: 11px 20px;
+  z-index: 1100; 
 }
 
 .navCont {
@@ -293,7 +294,7 @@ body{
 
 .jobPosts {
   padding: 20px;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .job-tab {
@@ -428,4 +429,95 @@ body{
 /* Style for the file input */
 .ApplicationContainer__form__input .file {
   margin-top: 10px;
+}
+
+
+
+/*.............create job page.....................*/
+
+/* CreateJob.css */
+
+.create-job-component {
+  margin-left: 230px;
+  margin-top: 110px;
+  margin-bottom: 30px;
+  padding: 20px;
+}
+
+.image-job {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}
+
+.create-form {
+  
+  margin-top: 20px;
+  width: 100%-10px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.create-form .form_job {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-form .label {
+  margin-top: 20px;
+}
+
+.create-form .MuiTextField-root {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.create-form .create-button {
+  width: 90px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-form .create-button:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+/*...........Footer.........*/
+.Footer{
+  position: 'relative';
+  margin-top: auto;
+   background-color: #eeeeee;
+  color: "black";
+  padding: 50px;
+  z-Index:1100;
+}
+
+
+.delbutton {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  margin: 5px;
+  height: 30px;
+  width: 30px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+.delbutton:hover {
+  background-color: #0056b3;
 }

@@ -75,7 +75,7 @@ const userSlice = createSlice({
                 state.error = 'Invalid Credentials';
             }
             else{
-                state.error = action.error.message;
+                state.error = action.payload.message;
             }
            
         },)

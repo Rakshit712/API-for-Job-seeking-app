@@ -3,6 +3,7 @@ import { FaHome } from "react-icons/fa";
 import { SiAkamai } from "react-icons/si";
 import { FcBusinessman } from "react-icons/fc";
 import { useDispatch, useSelector } from 'react-redux';
+import { IoIosCreate } from "react-icons/io";
 import { FcFile } from "react-icons/fc";
 import { Link } from 'react-router-dom';
 
@@ -19,9 +20,10 @@ function Sidebar() {
                 {role === 'provider' ? (
                     <>
                         <li className='tags'><Link to={'/'}><FaHome /> Home</Link></li>  
-                        <li className='tags'> <FcFile /> My Jobs</li>
+                        <li className='tags'><Link to={'/myjobs'}> <FcFile /> My Jobs </Link></li>
                         <li className='tags'> <SiAkamai /> View Applications</li>
                         <li className='tags' ><Link to={'/profile'}> <FcBusinessman />  Profile</Link></li>
+                        <li className='tags' ><Link to={'/createJob'}> <IoIosCreate />  Create Job</Link></li>
                     </>
                 ) : role === 'seeker' ? (
                     <>

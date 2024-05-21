@@ -11,6 +11,7 @@ import { FcPhone } from "react-icons/fc";
 import { FcOrganization } from "react-icons/fc";
 import { FcBullish } from "react-icons/fc";
 import { FcKindle } from "react-icons/fc";
+import Footer from "../components/Footer";
 
 function Profile() {
   const dispatch = useDispatch();
@@ -190,6 +191,7 @@ function Profile() {
           </form>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

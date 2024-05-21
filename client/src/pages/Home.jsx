@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getJobs } from '../store/JobSlice';
 import { useNavigate } from 'react-router-dom';
 import { SiAkamai, SiEsotericsoftware } from "react-icons/si";
+import Footer from '../components/Footer';
 
 
 function Home() {
@@ -55,6 +56,7 @@ function Home() {
         </div>
         </div>
       </div>
+      
     </>
   );
 }

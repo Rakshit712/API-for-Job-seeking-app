@@ -70,24 +70,24 @@ async function getJobs(req, res) {
 
 //.................get job by id..............
 
-async function getjobById(req,res){
+async function getjobById(req, res) {
     try {
         const jobId = req.params.id;
         const job = await Job.findById(jobId);
-        if(job){
+        if (job) {
             return res.status(200).json({
                 status: "success",
                 message: "job found",
                 job
             })
         }
-        else{
+        else {
             return res.status(404).json({
                 status: "error",
                 message: "job not found"
             })
         }
-        
+
     } catch (err) {
         throw {
             statusCode: err.statusCode || 500,
@@ -164,6 +164,39 @@ async function deleteJob(req, res) {
     }
 }
 
+//.................function to fetch jobs for a patricular provider.............................
+
+async function getjobByProviderId(req, res) {
+    try {
+
+        const provider = req.params.id;
+        const jobs = await Job.find({ jobProviderId: provider })
+        if (jobs.length > 0) {
+            return res.status(200).json({
+                status: 'Success',
+                message: 'Fetched the jobs successfully!',
+                data: jobs
+            })
+        } else {
+            return res.status(404).json({
+                status: 'Failure',
+                message: 'The specified job was not found in our records.'
+            });
+        }
+
+
+    } catch (err) {
+        throw {
+            statusCode: err.statusCode || 500,
+            status: err.status || "Something went wrong",
+            message: err.message || "Internal server error"
+
+        }
+
+    }
+}
+
+
 //...............function to filter  jobs by user type, location and salary range ............
 
 async function filterJobs(req, res) {
@@ -181,12 +214,12 @@ async function filterJobs(req, res) {
 
     try {
         const jobs = await Job.find(filterObject);
-        
+
         if (jobs && jobs.length > 0) {
             return res.status(200).json({
                 status: 'Success',
                 count: jobs.length,
-                data:jobs
+                data: jobs
             });
         } else {
             return res.status(404).json({
@@ -209,8 +242,9 @@ module.exports = {
     , updateJobRole: errorWrapper(updateJobRole)
     , deleteJob: errorWrapper(deleteJob)
     , getJobs: errorWrapper(getJobs),
-    getjobById:errorWrapper(getjobById),
-    filterJobs:errorWrapper(filterJobs)
+    getjobById: errorWrapper(getjobById),
+    filterJobs: errorWrapper(filterJobs),
+    getjobByProviderId:errorWrapper(getjobByProviderId)
 
 
 };
